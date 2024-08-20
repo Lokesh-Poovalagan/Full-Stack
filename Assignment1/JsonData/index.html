@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .student {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .student h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .student p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Students List</h1>
+    <div id="students"></div>
+
+    <script>
+        fetch('/students')
+            .then(response => response.json())
+            .then(data => {
+                const studentsContainer = document.getElementById('students');
+                data.students.forEach(student => {
+                    const studentDiv = document.createElement('div');
+                    studentDiv.className = 'student';
+                    studentDiv.innerHTML = `
+                        <h2>${student.name}</h2>
+                        <p>Age: ${student.age}</p>
+                        <p>Major: ${student.major}</p>
+                    `;
+                    studentsContainer.appendChild(studentDiv);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
