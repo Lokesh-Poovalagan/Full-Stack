@@ -1,0 +1,166 @@
+<!-- views/add.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Book</title>
+        <link rel="stylesheet" href="/styles.css"> <!-- Link to the CSS file -->
+    </head>
+    <style>/* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1, h3 {
+            color: #2c3e50;
+        }
+        
+        /* Header */
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Container */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            background-color: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        li h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        li p {
+            font-size: 1rem;
+        }
+        
+        button, input[type="submit"], a.button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        button:hover, a.button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        form label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        
+        form input[type="text"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        form button {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        /* Links */
+        a {
+            font-size: 1.1rem;
+        }
+        
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        /* Edit and Delete links */
+        li a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 1rem;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        li a:hover {
+            background-color: #c0392b;
+        }
+        </style>
+<body>
+    <h1>Add a New Book</h1>
+    <form action="/add" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" required><br>
+        <label for="author">Author:</label>
+        <input type="text" name="author" required><br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" required><br>
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" required><br>
+        <button type="submit">Add Book</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
