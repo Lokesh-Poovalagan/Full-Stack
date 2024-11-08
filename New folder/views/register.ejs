@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register for <%= event.name %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+  
+  form {
+    margin: 20px;
+  }
+  
+  input, select {
+    margin: 10px;
+    padding: 5px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  </style>
+<body>
+  <h1>Register for <%= event.name %></h1>
+  <form action="/register/<%= event._id %>" method="POST">
+    <label for="ticketType">Select Ticket Type</label>
+    <select name="ticketType" id="ticketType">
+      <% event.ticketTypes.forEach(ticket => { %>
+        <option value="<%= ticket.type %>">
+          <%= ticket.type %> - <%= ticket.price %> USD - <%= ticket.available %> available
+        </option>
+      <% }) %>
+    </select>
+
+    <label for="numberOfAttendees">Number of Attendees</label>
+    <input type="number" name="numberOfAttendees" id="numberOfAttendees" min="1" required>
+
+    <button type="submit">Register</button>
+  </form>
+  <a href="/">Back to Events</a>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event List</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+form {
+  margin: 20px;
+}
+
+input, select {
+  margin: 10px;
+  padding: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+<body>
+  <h1>Upcoming Events</h1>
+  <ul>
+    <% events.forEach(event => { %>
+      <li>
+        <h2><%= event.name %></h2>
+        <p><%= event.description %></p>
+        <p>Date: <%= event.date.toLocaleDateString() %></p>
+        <a href="/event/<%= event._id %>">Register</a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
